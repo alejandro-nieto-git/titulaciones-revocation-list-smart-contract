@@ -20,11 +20,10 @@ contract TitulacionDigitalProxy {
     event Upgraded(address indexed implementation);
 
     /// @notice Initializes the proxy with the initial implementation contract.
-    /// @param _admin The address of the admin of the revokation registry.
     /// @param _implementation The address of the initial implementation contract.
-    constructor(address _admin, address _implementation) {
+    constructor(address _implementation) {
         require(_implementation != address(0), "Invalid implementation address");
-        admin = _admin;
+        admin = msg.sender;
         implementation = _implementation;
     }
 
